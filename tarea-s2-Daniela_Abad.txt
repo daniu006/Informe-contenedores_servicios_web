@@ -1,0 +1,13 @@
+   1  sudo apt update
+   2  sudo apt install docker.io -y
+   3  sudo service docker start
+   4  docker --version
+   5  docker run -d --name nginx1 -p 8089:80 nginx
+   6  docker run -d --name nginx2 -p 8090:80 nginx
+   7  docker cp nginx1:/usr/share/nginx/html/index.html ./index1.html
+   8  nano index1.html
+   9  docker cp index1.html nginx1:/usr/share/nginx/html/index.html
+  10  docker cp nginx2:/usr/share/nginx/html/index.html ./index2.html
+  11  nano index2.html
+  12  docker cp index2.html nginx2:/usr/share/nginx/html/index.html
+  13  history | tee tarea-s2-Daniela_Abad.txt
